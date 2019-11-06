@@ -38,9 +38,43 @@
 
 \section{}
 
+\subsection{目的}
+最小二乗法の精度がどの程度のものか検討する. 
+
 \subsection{手法}
-$M$ 個のデータをランダムに生成し, 特徴量$x_i(0, 1)$のデータとした(ランダムさは, 正規分布に従い, これ以降使用するランダムな数字も正規分布に従う). 
-これに対し, 観測データ$y$を式(\ref{ymake})によって作成する.
+$M$ 個のデータをランダムに生成し, 特徴量$x_i(0, 1, \dots, M)$のデータとした(ランダムさは, 正規分布に従い, これ以降使用するランダムな数字も正規分布に従う). 
+これに対し, 観測データ$y_i(0, 1, \dots, M)$を式(\ref{ymake})によって作成する.
+\begin{equation}
+\label{ymake}
+y_i = \beta \times x_i + \beta_i \times 0.5
+\end{equation}
+ここで, $\beta$はランダムな定数であり, $i$に関係なく一つに決める. 
+一方, $\beta_i(0, 1, \dots, M)$は, $i$によって異なるランダムな数である. 
+また, $x_i$に関係ないこの項はノイズに該当する. 
+なお, ランダムな数は, 正規分布に従うため, 平均は0となる. 
+よって, 真の関数は, 式(\ref{y}) で表すことができる. 
+\begin{equation}
+\label{y}
+y = \beta \times x
+\end{equation}
+作成した特徴量$x_i$と観測データ$y_i$から, 最小二乗法によって式(\ref{y})の$\beta$を, 予測する. 
+ここで, 予測した傾きを$\beta^*$とすると, 最小二乗法によって求めた, 式(\ref{y})は式(\ref{ypred})のように表せる. 
+\begin{equation}
+\label{ypred}
+y = \beta^* \times x 
+\end{equation}
+
+
+\subsection{結果}
+生成した$\beta$は   , 
+最小二乗法によって求めた$\beta *$は    ,であった. 
+
+
+
+ここで, 観測データと式(\ref{y}), 式(\ref{ypred})を図\ref{kaku}にまとめた. 横軸は特徴量 $x$ , 縦軸は観測データ$y$である. 
+
+
+\subsection{考察}
 
 
 
@@ -48,9 +82,12 @@ $M$ 個のデータをランダムに生成し, 特徴量$x_i(0, 1)$のデータ
 
 
 \section{}
+\subsection{目的}
+リッジ回帰における正則化パラメータ$\alpha$と予測誤差の関係を調べる. 
 
-
-
+\subsection{手法}
+python のライブラリである scikit-learn 内に存在する boston housing データ使用した. 
+boston housing データには, リッジ回帰
 
 
 
