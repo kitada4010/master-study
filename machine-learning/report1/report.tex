@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{mathrsfs}
+\usepackage{verbatim}
 \makeatletter
 
 \def\@thesis{機械学習特論}
@@ -81,6 +82,13 @@ y = \beta^* \times x + b
 ここで, 観測データと式(\ref{y}), 式(\ref{ypred})を図\ref{kaku}にまとめた. 横軸は特徴量 $x$ , 縦軸は観測データ$y$である. 
 
 
+\begin{center}
+\begin{figure}
+\label{kaku}
+\caption{観測データと真の解, 予測解}
+\includegraphics[width=10cm]{prog/kaku.png}
+\end{figure}
+\end{center}
 
 
 
@@ -104,7 +112,7 @@ boston housing データには, 13種類の特徴量が存在する.
 \begin{table}[htb]
   \begin{center}
     \label{boston}
-  \begin{tabular}{{ l | l | l |}\hline
+  \begin{tabular}{| l | l |}\hline
     カラム名  & 特徴量 \\ \hline
     CRIM & 人口 1 人当たりの犯罪発生数 \\ \hline
     ZN & 25,000 平方フィート以上の住居区画の占める割合 \\ \hline
@@ -134,14 +142,43 @@ boston housing データには, 13種類の特徴量が存在する.
 
 上記のプログラムを以下に示す. 
 
+\scriptsize
+\begin{verbatim}
+
+
+\end{verbatim}
+\normalsize
+
 \subsection{結果}
-ホールドアウト法を用いた時の, ある学習データ, テストデータに対して, MAEとRMSEは, $\alpha$の変化によって, どう変化したかを, それぞれ, 図\ref{mae_al}, \ref{mae_al} に示す.
-どちらの図をみてもわかるように, $\alpha$ が大きすぎても, 小さすぎてもMAEとRMSEは最小にはならない. 
+ホールドアウト法を用いた時の, ある学習データ, テストデータに対して, MAEとRMSEは, $\alpha$の変化によって, どう変化したかを, それぞれ, 図\ref{mae_al}, \ref{rmse_al} に示す.
+どちらの図をみてもわかるように, $\alpha$ が大きすぎても, 小さすぎてもMAEとRMSEは最小にはならない.
+
+ 
+\begin{figure}
+\begin{center}
+\label{mae_al}
+\caption{MAEと$\alpha$の関係}
+\includegraphics[width=10cm]{prog/mae.png}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{center}
+\label{rmse_al}
+\caption{RMSEと$\alpha$の関係}
+\includegraphics[width=10cm]{prog/rmse.png}
+\end{center}
+\end{figure}
+
 
 %では, どのデータに対しても, MAEとRMSEが最小に近くなる $\alpha$ を検討するために
 ホールドアウト法によって, 導出された MSEが最小となる $\alpha$ の平均は 1.18 , 
 標準偏差は 1.67 となった.
 一方, RMSEが最小となる $\alpha$ の平均は 0.57 , 標準偏差は 1.29 となった. 
+
+
 
 
 \subsection{考察}
