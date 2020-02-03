@@ -1,0 +1,28 @@
+参考文献探し
+
+https://www.pnas.org/content/pnas/95/26/15706.full.pdf
+猿を使用
+複数電極での解析
+実験の段階で、事前確率となるデータを取得
+ポアソン分布を使って, 偶然に起こったと考えられる確率を引く
+
+
+https://www.nature.com/articles/nature01616.pdf
+マウスを使用
+
+
+https://www.jneurosci.org/content/jneuro/31/1/55.full.pdf
+ラットの大脳皮質細胞を培養して使用
+複数電極での解析
+実験の段階で、対応するデータを取得
+
+
+
+neurons activity  information single electrode ca1
+相互情報量の計算式なし
+https://www.pnas.org/content/pnas/104/36/14495.full.pdf
+
+
+https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1460-9568.2005.04464.x
+in vitro
+

@@ -71,9 +71,45 @@ y = \beta^* \times x + b
 
 
 
+\scriptsize
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+Num = 100
+x = np.random.randn(Num)
+b = np.random.randn(1)
+print(b)
+y = b*x + np.random.randn(Num)*0.5
+xx = np.linspace(min(x), max(x), Num)
 
 
-\subsection{結果},
+x1 = np.full((1, Num), 1)
+bm_x = np.concatenate([[x], x1])
+bm_x = bm_x.T
+b1 = np.dot(bm_x.T, bm_x)
+print(b1)
+b1 = np.linalg.inv(b1)
+print(b1)
+b1 = np.dot(b1, bm_x.T)
+b1 = np.dot(b1, y)
+print(b1)
+sy = b * xx
+yy = b1[0] * xx + b1[1]
+plt.plot(x,y,marker='.',ls='')
+print(b)
+print(b1[0])
+print(b1[1])
+plt.plot(xx, sy, label='true line')
+plt.plot(xx,yy, label='predict line')
+plt.legend()
+plt.savefig('')
+plt.savefig('kaku.png')
+\end{verbatim}
+\normalsize
+
+
+\subsection{結果}
 生成した$\beta$は 1.262,
 最小二乗法によって求めた$\beta *$は 1.237, bは, 0.027であった. 
 
@@ -82,14 +118,14 @@ y = \beta^* \times x + b
 ここで, 観測データと式(\ref{y}), 式(\ref{ypred})を図\ref{kaku}にまとめた. 横軸は特徴量 $x$ , 縦軸は観測データ$y$である. 
 
 
-\begin{center}
+
 \begin{figure}
+\begin{center}
 \label{kaku}
 \caption{観測データと真の解, 予測解}
 \includegraphics[width=10cm]{prog/kaku.png}
-\end{figure}
 \end{center}
-
+\end{figure}
 
 
 \subsection{考察}
@@ -142,9 +178,81 @@ boston housing データには, 13種類の特徴量が存在する.
 
 上記のプログラムを以下に示す. 
 
+\clearpage
 \scriptsize
 \begin{verbatim}
+import numpy as np
+from sklearn import datasets
+from sklearn import linear_model
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
 
+
+boston = datasets.load_boston()
+
+ran = 100
+leng = 500
+
+
+alpha = np.linspace(0, 4.99, leng)
+
+train_score_all = np.linspace(0.001, 5, leng).reshape(1, leng)
+val_score_all = np.linspace(0.001, 5, leng).reshape(1, leng)
+
+train_mae_all = np.linspace(0.001, 5, leng).reshape(1, leng)
+val_mae_all = np.linspace(0.001, 5, leng).reshape(1, leng)
+
+train_rmse_all = np.linspace(0.001, 5, leng).reshape(1, leng)
+val_rmse_all = np.linspace(0.001, 5, leng).reshape(1, leng)
+
+
+
+for w in range(ran): 
+    X_train, X_val, y_train, y_val = train_test_split(boston.data, boston.target, train_size=0.8, random_state=w)
+    
+
+    
+    train_score_data = np.empty(leng, dtype=np.float)
+    val_score_data = np.empty(leng, dtype=np.float)
+
+    train_mae_data = np.empty(leng, dtype=np.float)
+    val_mae_data = np.empty(leng, dtype=np.float)
+
+    train_rmse_data = np.empty(leng, dtype=np.float)
+    val_rmse_data = np.empty(leng, dtype=np.float)
+
+    for i in range(leng) :
+        clf = linear_model.Ridge(alpha = alpha[i])
+        clf.fit(X_train, y_train)
+    
+        y_train_pred = clf.predict(X_train)
+        y_val_pred = clf.predict(X_val)
+    
+        testy = y_val
+    
+        #predicted = clf.predict(boston.data)
+    
+        train_score_data[i] = clf.score(X_train, y_train)
+        val_score_data[i] = clf.score(X_val, y_val)
+        #mae = mean_absolute_error(Xtrain, y_train)
+        # 平方根平均二乗誤差（RMSE）
+    
+        train_mae_data[i] = mean_absolute_error(y_train, y_train_pred)
+        val_mae_data[i] = mean_absolute_error(y_val, y_val_pred)
+    
+        train_rmse_data[i] = np.sqrt(mean_squared_error(y_train, y_train_pred))
+        val_rmse_data[i] = np.sqrt(mean_squared_error(y_val, y_val_pred))
+        
+    train_score_all = np.append(train_score_all, train_score_data.reshape(1, leng), axis=0)
+    train_mae_all = np.append(train_mae_all, train_mae_data.reshape(1, leng), axis=0)
+    train_rmse_all = np.append(train_rmse_all, train_rmse_data.reshape(1, leng), axis=0)
+    
+    val_score_all = np.append(val_score_all, val_score_data.reshape(1, leng), axis=0)
+    val_mae_all = np.append(val_mae_all, val_mae_data.reshape(1, leng), axis=0)
+    val_rmse_all = np.append(val_rmse_all, val_rmse_data.reshape(1, leng), axis=0)
 
 \end{verbatim}
 \normalsize
