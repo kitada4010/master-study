@@ -33,3 +33,7 @@ https://onlinelibrary.wiley.com/doi/pdf/10.1002/(SICI)1098-1063(1999)9:5%3C582::
 \begin{equation*}
 \frac{1}{2N_T \ln 2} \left\{ \sum_s R_s - R (S-1) \right\}
 \end{equation*}
+
+
+
+
