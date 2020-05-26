@@ -37,6 +37,9 @@ https://onlinelibrary.wiley.com/doi/pdf/10.1002/(SICI)1098-1063(1999)9:5%3C582::
 
 
 
+<<<<<<< HEAD
 https://physoc.onlinelibrary.wiley.com/doi/pdf/10.1113/jphysiol.2008.164111
 
+=======
+>>>>>>> f76bd5c409f12b6c6f39653b6492cf9966a57ce4
 
