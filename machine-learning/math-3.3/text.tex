@@ -133,13 +133,13 @@
 \begin{frame}{3.3(8) $|x| + |y| + |z|  = 1$}
   以下の8つの場合にわけられる
   \begin{eqnarray*}
-    x > 0, y > 0, z > 0 \\
-    x < 0, y > 0, z > 0 \\
-    x > 0, y < 0, z > 0 \\
-    x > 0, y > 0, z < 0 \\
-    x < 0, y < 0, z > 0 \\
-    x < 0, y > 0, z < 0 \\
-    x > 0, y < 0, z < 0 \\
+    x \geq 0, y \geq 0, z \geq 0 \\
+    x < 0, y \geq 0, z \geq 0 \\
+    x \geq 0, y < 0, z \geq 0 \\
+    x \geq 0, y \geq 0, z < 0 \\
+    x < 0, y < 0, z \geq 0 \\
+    x < 0, y \geq 0, z < 0 \\
+    x \geq 0, y < 0, z < 0 \\
     x < 0, y < 0, z < 0 
   \end{eqnarray*}
 \end{frame}
@@ -150,20 +150,20 @@
   計算的には4つ場合にわけられる
   \begin{eqnarray}
     \label{sei}
-    && x > 0, y > 0, z > 0 \\
+    && x \geq 0, y \geq 0, z \geq 0 \\
     \label{hu1}
     && \left\{
     \begin{array}{c}
-    x < 0, y > 0, z > 0 \\
-    x > 0, y < 0, z > 0 \\
-    x > 0, y > 0, z < 0 
+    x < 0, y \geq 0, z \geq 0 \\
+    x \geq 0, y < 0, z \geq 0 \\
+    x \geq 0, y \geq 0, z < 0 
     \end{array} \right. \\
     \label{hu2}
     && \left\{
     \begin{array}{c}
-    x < 0, y < 0, z > 0 \\
-    x < 0, y > 0, z < 0 \\
-    x > 0, y < 0, z < 0 
+    x < 0, y < 0, z \geq 0 \\
+    x < 0, y \geq 0, z < 0 \\
+    x \geq 0, y < 0, z < 0 
     \end{array} \right. \\
     \label{hu}
     && x < 0, y < 0, z < 0 
@@ -294,7 +294,7 @@
 
 
 \begin{frame}{3.3(8) $|x| + |y| + |z|  = 1$ \hspace{5mm} (\ref{hu1})1つの成分が負の場合}
-  同様に, $x > 0, y < 0, z > 0$ の場合 
+  同様に, $x \geq 0, y < 0, z \geq 0$ の場合 
   \begin{eqnarray*}
     x - y + z &=& 1\\
     (x-1) - y + z &=& 0\\
@@ -303,7 +303,7 @@
   \end{eqnarray*}
   (1, 0, 0), (0, -1, 0), (0, 0, 1) を通る平面 \\ \vspace{5mm}
 
-  $x > 0, y > 0, z < 0$ の場合 
+  $x \geq 0, y \geq 0, z < 0$ の場合 
   \begin{eqnarray*}
     x - y + z &=& 1\\
     (x-1) + y - z &=& 0\\
@@ -355,7 +355,7 @@
 
 
 \begin{frame}{3.3(8) $|x| + |y| + |z|  = 1$ \hspace{5mm} (\ref{hu2})2つの成分が負の場合}
-  同様に, $x < 0, y > 0, z < 0$ の場合 
+  同様に, $x < 0, y \geq 0, z < 0$ の場合 
   \begin{eqnarray*}
     -x + y -z &=& 1\\
     -(x+1) + y - z &=& 0\\
@@ -364,7 +364,7 @@
   \end{eqnarray*}
   (-1, 0, 0), (0, 1, 0), (0, 0, -1) を通る平面 \\ \vspace{5mm}
 
-  $x > 0, y < 0, z < 0$ の場合 
+  $x \geq 0, y < 0, z < 0$ の場合 
   \begin{eqnarray*}
     x - y - z &=& 1\\
     (x-1) - y - z &=& 0\\
@@ -415,25 +415,25 @@
 \end{frame}
 
 \begin{frame}{3.3(8) $|x| + |y| + |z|  = 1$ \hspace{5mm} まとめ}
-  $x > 0, y > 0, z > 0$ の場合 \\
+  $x \geq 0, y \geq 0, z \geq 0$ の場合 \\
   (1, 0, 0), (0, 1, 0), (0, 0, 1) を通る平面
   
-  $x < 0, y > 0, z > 0$ の場合 \\
+  $x < 0, y \geq 0, z \geq 0$ の場合 \\
   (-1, 0, 0), (0, 1, 0), (0, 0, 1) を通る平面
   
-  $x > 0, y < 0, z > 0$ の場合 \\
+  $x \geq 0, y < 0, z \geq 0$ の場合 \\
   (1, 0, 0), (0, -1, 0), (0, 0, 1) を通る平面
 
-  $x > 0, y > 0, z < 0$ の場合 \\
+  $x \geq 0, y \geq 0, z < 0$ の場合 \\
   (1, 0, 0), (0, 1, 0), (0, 0, -1) を通る平面
 
-  $x < 0, y < 0, z > 0$ の場合 \\
+  $x < 0, y < 0, z \geq 0$ の場合 \\
   (-1, 0, 0), (0, -1, 0), (0, 0, 1) を通る平面
   
-  $x < 0, y > 0, z < 0$ の場合 \\
+  $x < 0, y \geq 0, z < 0$ の場合 \\
   (-1, 0, 0), (0, 1, 0), (0, 0, -1) を通る平面
 
-  $x > 0, y < 0, z < 0$ の場合 \\
+  $x \geq 0, y < 0, z < 0$ の場合 \\
   (1, 0, 0), (0, -1, 0), (0, 0, -1) を通る平面
   
   $x < 0, y < 0, z < 0$ の場合 \\
