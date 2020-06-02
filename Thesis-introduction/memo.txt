@@ -43,3 +43,12 @@ https://physoc.onlinelibrary.wiley.com/doi/pdf/10.1113/jphysiol.2008.164111
 =======
 >>>>>>> f76bd5c409f12b6c6f39653b6492cf9966a57ce4
 
+https://journals.plos.org/ploscompbiol/article/file?type=printable&id=10.1371/journal.pcbi.1002211
+脳への入力に対し, 出力はどのような確率分布を描くのか, 2つの手法を用いて推定する. 
+実際に簡単なニューラルモデルをシミュレートしてみるよ
+
+
+
+https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1460-9568.2007.05880.x
+
+
